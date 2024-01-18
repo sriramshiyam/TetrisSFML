@@ -1,0 +1,4 @@
+#ifndef TETRIS_RENDERER
+#define TETRIS_RENDERER
+
+#endif
