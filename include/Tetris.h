@@ -1,4 +1,19 @@
-#ifndef TETRIS
-#define TETRIS
+#ifndef TETRIS_H
+#define TETRIS_H
 
-#endif
+#include <SFML/Graphics.hpp>
+#include <TetrisRenderer.h>
+
+
+class Tetris
+{
+public:
+    Tetris(sf::RenderWindow *window);
+    ~Tetris();
+    void update();
+
+private:
+    TetrisRenderer renderer;
+};
+
+#endif // TETRIS_H

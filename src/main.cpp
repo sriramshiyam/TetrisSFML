@@ -1,9 +1,14 @@
 #include <SFML/Graphics.hpp>
+#include <TetrisConstants.h>
 #include <Tetris.h>
 
 int main(int argc, char const *argv[])
 {
-    sf::RenderWindow window(sf::VideoMode(400, 700), "Tetris", sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(0, 0, 8));
+    using namespace TetrisConstants;
+
+    sf::RenderWindow window(sf::VideoMode(TETRIS_WIDTH + 1, TETRIS_HEIGHT + 1), "Tetris", sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(0, 0, 8));
+
+    Tetris tetris(&window);
 
     while (window.isOpen())
     {
@@ -16,7 +21,7 @@ int main(int argc, char const *argv[])
             }
         }
         window.clear();
-
+        tetris.update();
         window.display();
     }
 

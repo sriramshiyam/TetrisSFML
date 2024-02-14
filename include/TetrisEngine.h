@@ -1,4 +1,4 @@
-#ifndef TETRIS_ENGINE
-#define TETRIS_ENGINE
+#ifndef TETRIS_ENGINE_H
+#define TETRIS_ENGINE_H
 
 #endif
