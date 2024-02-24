@@ -4,9 +4,10 @@
 
 namespace TetrisConstants
 {
-    const int TETRIS_DIMENSION = 50;
+    const int HEIGHT_PERCENT = 80;
     const int TETRIS_COLUMN = 10;
     const int TETRIS_ROW = 20;
+    const int TETRIS_DIMENSION = sf::VideoMode::getDesktopMode().height * HEIGHT_PERCENT / 100 / TETRIS_ROW; // window height is of 80 percent of a screen height
     const int TETRIS_WIDTH = TETRIS_COLUMN * TETRIS_DIMENSION;
     const int TETRIS_HEIGHT = TETRIS_ROW * TETRIS_DIMENSION;
     const int TETRIS_GRID_COLOR = 0xffffff;
