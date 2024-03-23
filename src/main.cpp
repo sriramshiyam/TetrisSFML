@@ -6,7 +6,8 @@ int main(int argc, char const *argv[])
 {
     using namespace TetrisConstants;
 
-    sf::RenderWindow window(sf::VideoMode(TETRIS_WIDTH + 1, TETRIS_HEIGHT + 1), "Tetris", sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(0, 0, 8));
+    sf::RenderWindow window(sf::VideoMode(TETRIS_WIDTH, TETRIS_HEIGHT), "Tetris", sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(0, 0, 8));
+    window.setPosition(sf::Vector2i(100, 50));
 
     Tetris tetris(&window);
 
@@ -21,7 +22,7 @@ int main(int argc, char const *argv[])
             }
         }
         window.clear();
-        tetris.update();
+        tetris.update(&event);
         window.display();
     }
 

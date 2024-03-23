@@ -7,10 +7,11 @@ class TetrisRenderer
 public:
     TetrisRenderer(sf::RenderWindow *window);
     ~TetrisRenderer();
-    void render();
-    void drawGrid();
+    void render(char **gridData);
 
 private:
+    void drawGrid();
+    void drawBlocks(char **gridData);
     sf::RenderWindow *window;
 };
 
