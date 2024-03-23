@@ -1,6 +1,8 @@
 # TetrisSFML
 
-## TODO
+### TetrisSFML is a classic Tetris game implemented in C++ using the SFML (Simple and Fast Multimedia Library).
+
+>## TODO
 
 - [x] grid lines
 - [x] spawn color blocks
