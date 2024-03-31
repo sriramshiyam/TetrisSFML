@@ -14,6 +14,10 @@ private:
     bool spawnNewBlock = true;
     bool spawned = false;
     bool first = true;
+    bool movingHorizontally = false;
+    TetrisShape currentShape;
+    Colors currentColor;
+    void placeInitialBlocks();
 
 public:
     TetrisEngine();
@@ -22,7 +26,12 @@ public:
     void moveBlocksLeft();
     void moveBlocksDown();
     void updateGridData();
-    void invalidateHorizontallyMovingBlock();
+    void logGridData();
     char **getGridData();
+    void setSpawnNewBlock(bool newSpawnNewBlock);
+    bool getSpawnNewBlock();
+    void setMovingHorizontally(bool movingHorizontally);
+    bool getMovingHorizontally();
+    void moveBlockToBottom();
 };
 #endif

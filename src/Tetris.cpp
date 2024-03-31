@@ -12,8 +12,8 @@ Tetris::~Tetris()
 
 void Tetris::update(sf::Event *event)
 {
-
-    if (event->type == sf::Event::KeyPressed)
+    // sf::Keyboard::Space is not working in sf::Event::KeyPressed event
+    if (event->type == sf::Event::KeyPressed && !engine.getSpawnNewBlock())
     {
         switch (event->key.code)
         {
@@ -21,9 +21,11 @@ void Tetris::update(sf::Event *event)
             engine.moveBlocksDown();
             break;
         case sf::Keyboard::Left:
+            leftKeyPressed = true;
             engine.moveBlocksLeft();
             break;
         case sf::Keyboard::Right:
+            rightKeyPressed = true;
             engine.moveBlocksRight();
             break;
         default:
@@ -32,12 +34,23 @@ void Tetris::update(sf::Event *event)
     }
     else if (event->type == sf::Event::KeyReleased)
     {
-        if (event->key.code == sf::Keyboard::Left || event->key.code == sf::Keyboard::Right)
+        if (event->key.code == sf::Keyboard::Left)
         {
-            // engine.
+            leftKeyPressed = false;
+        }
+        else if (event->key.code == sf::Keyboard::Right)
+        {
+            rightKeyPressed = false;
         }
     }
 
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        engine.moveBlockToBottom();
+    }
+
+    engine.setMovingHorizontally(leftKeyPressed || rightKeyPressed);
     engine.updateGridData();
+    // engine.logGridData();
     renderer.render(engine.getGridData());
 }

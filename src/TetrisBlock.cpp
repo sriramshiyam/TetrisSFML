@@ -60,7 +60,7 @@ void TetrisBlock::drawTetrisBlock(char color)
 
     sf::ConvexShape shape2;
     shape2.setPointCount(4);
-    shape2.setFillColor(sf::Color(0, 0, 0, 90));
+    shape2.setFillColor(sf::Color(0, 0, 0, 120));
 
     shape2.setPoint(0, sf::Vector2f(0.0f, 0.0f));
     shape2.setPoint(1, sf::Vector2f(x1, y1));
@@ -69,7 +69,7 @@ void TetrisBlock::drawTetrisBlock(char color)
 
     sf::ConvexShape shape3;
     shape3.setPointCount(4);
-    shape3.setFillColor(sf::Color(0, 0, 0, 90));
+    shape3.setFillColor(sf::Color(0, 0, 0, 120));
 
     shape3.setPoint(0, sf::Vector2f(0.0f, blockHeight));
     shape3.setPoint(1, sf::Vector2f(blockWidth, blockHeight));

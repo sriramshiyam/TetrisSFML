@@ -15,6 +15,8 @@ public:
 private:
     TetrisRenderer renderer;
     TetrisEngine engine;
+    bool leftKeyPressed = false;
+    bool rightKeyPressed = false;
 };
 
 #endif // TETRIS_H

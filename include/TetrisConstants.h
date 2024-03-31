@@ -32,4 +32,15 @@ enum Colors
     ORANGE = 'O'
 };
 
+enum TetrisShape
+{
+    O,
+    I,
+    L,
+    S,
+    Z,
+    J,
+    T
+};
+
 #endif
