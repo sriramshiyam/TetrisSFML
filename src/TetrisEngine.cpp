@@ -1,6 +1,7 @@
 #include <TetrisEngine.h>
 #include <iostream>
 #include <shapes/TetrisShape_O.h>
+#include <shapes/TetrisShape_I.h>
 
 TetrisEngine::TetrisEngine()
 {
@@ -25,6 +26,9 @@ void TetrisEngine::moveBlocksRight()
         case TetrisShape::O:
             TetrisShape_O(this, currentColor).moveShapeRight();
             break;
+        case TetrisShape::I:
+            TetrisShape_I(this, currentColor).moveShapeRight();
+            break;
         default:
             break;
         }
@@ -41,6 +45,9 @@ void TetrisEngine::moveBlocksLeft()
         case TetrisShape::O:
             TetrisShape_O(this, currentColor).moveShapeLeft();
             break;
+        case TetrisShape::I:
+            TetrisShape_I(this, currentColor).moveShapeLeft();
+            break;
         default:
             break;
         }
@@ -56,6 +63,9 @@ void TetrisEngine::moveBlocksDown()
         {
         case TetrisShape::O:
             TetrisShape_O(this, currentColor).moveShapeDown();
+            break;
+        case TetrisShape::I:
+            TetrisShape_I(this, currentColor).moveShapeDown();
             break;
         default:
             break;
@@ -81,7 +91,7 @@ void TetrisEngine::updateGridData()
             int colors[] = {BLUE, LIGHTBLUE, RED, YELLOW, GREEN, PURPLE, ORANGE};
             int colorIndex = rand() % 7;
             // currentShape = TetrisShape(rand() % 8);
-            currentShape = TetrisShape::O;
+            currentShape = TetrisShape::I;
             currentColor = (Colors)colors[colorIndex];
             placeInitialBlocks();
         }
@@ -93,6 +103,9 @@ void TetrisEngine::updateGridData()
             {
             case TetrisShape::O:
                 TetrisShape_O(this, currentColor).updateShapeData();
+                break;
+            case TetrisShape::I:
+                TetrisShape_I(this, currentColor).updateShapeData();
                 break;
             default:
                 break;
@@ -146,7 +159,6 @@ bool TetrisEngine::getMovingHorizontally()
 
 void TetrisEngine::moveBlockToBottom()
 {
-    std::cout << "TetrisEngine::moveBlockToBottom" << std::endl;
     if (moveTimer.getElapsedTime().asSeconds() >= 0.19f)
     {
 
@@ -154,6 +166,9 @@ void TetrisEngine::moveBlockToBottom()
         {
         case TetrisShape::O:
             TetrisShape_O(this, currentColor).moveShapeToBottom();
+            break;
+        case TetrisShape::I:
+            TetrisShape_I(this, currentColor).moveShapeToBottom();
             break;
         default:
             break;
@@ -181,6 +196,9 @@ void TetrisEngine::placeInitialBlocks()
     {
     case TetrisShape::O:
         TetrisShape_O(this, currentColor).placeInitialShape();
+        break;
+    case TetrisShape::I:
+        TetrisShape_I(this, currentColor).placeInitialShape();
         break;
     default:
         break;

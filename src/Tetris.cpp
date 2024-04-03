@@ -44,7 +44,7 @@ void Tetris::update(sf::Event *event)
         }
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !engine.getSpawnNewBlock())
     {
         engine.moveBlockToBottom();
     }
