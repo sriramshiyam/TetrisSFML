@@ -2,6 +2,7 @@
 #include <iostream>
 #include <shapes/TetrisShape_O.h>
 #include <shapes/TetrisShape_I.h>
+#include <shapes/TetrisShape_T.h>
 
 TetrisEngine::TetrisEngine()
 {
@@ -29,6 +30,9 @@ void TetrisEngine::moveBlocksRight()
         case TetrisShape::I:
             TetrisShape_I(this, currentColor).moveShapeRight();
             break;
+        case TetrisShape::T:
+            TetrisShape_T(this, currentColor).moveShapeRight();
+            break;
         default:
             break;
         }
@@ -48,6 +52,9 @@ void TetrisEngine::moveBlocksLeft()
         case TetrisShape::I:
             TetrisShape_I(this, currentColor).moveShapeLeft();
             break;
+        case TetrisShape::T:
+            TetrisShape_T(this, currentColor).moveShapeLeft();
+            break;
         default:
             break;
         }
@@ -66,6 +73,9 @@ void TetrisEngine::moveBlocksDown()
             break;
         case TetrisShape::I:
             TetrisShape_I(this, currentColor).moveShapeDown();
+            break;
+        case TetrisShape::T:
+            TetrisShape_T(this, currentColor).moveShapeDown();
             break;
         default:
             break;
@@ -91,7 +101,7 @@ void TetrisEngine::updateGridData()
             int colors[] = {BLUE, LIGHTBLUE, RED, YELLOW, GREEN, PURPLE, ORANGE};
             int colorIndex = rand() % 7;
             // currentShape = TetrisShape(rand() % 8);
-            currentShape = TetrisShape::I;
+            currentShape = TetrisShape::T;
             currentColor = (Colors)colors[colorIndex];
             placeInitialBlocks();
         }
@@ -106,6 +116,9 @@ void TetrisEngine::updateGridData()
                 break;
             case TetrisShape::I:
                 TetrisShape_I(this, currentColor).updateShapeData();
+                break;
+            case TetrisShape::T:
+                TetrisShape_T(this, currentColor).updateShapeData();
                 break;
             default:
                 break;
@@ -170,6 +183,9 @@ void TetrisEngine::moveBlockToBottom()
         case TetrisShape::I:
             TetrisShape_I(this, currentColor).moveShapeToBottom();
             break;
+        case TetrisShape::T:
+            TetrisShape_T(this, currentColor).moveShapeToBottom();
+            break;
         default:
             break;
         }
@@ -199,6 +215,9 @@ void TetrisEngine::placeInitialBlocks()
         break;
     case TetrisShape::I:
         TetrisShape_I(this, currentColor).placeInitialShape();
+        break;
+    case TetrisShape::T:
+        TetrisShape_T(this, currentColor).placeInitialShape();
         break;
     default:
         break;
