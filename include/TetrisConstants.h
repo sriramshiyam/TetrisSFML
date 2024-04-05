@@ -36,11 +36,11 @@ enum TetrisShape
 {
     O,
     I,
+    T,
     L,
-    S,
-    Z,
     J,
-    T
+    S,
+    Z
 };
 
 #endif

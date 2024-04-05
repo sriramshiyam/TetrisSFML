@@ -3,6 +3,7 @@
 #include <shapes/TetrisShape_O.h>
 #include <shapes/TetrisShape_I.h>
 #include <shapes/TetrisShape_T.h>
+#include <shapes/TetrisShape_L.h>
 
 TetrisEngine::TetrisEngine()
 {
@@ -33,6 +34,9 @@ void TetrisEngine::moveBlocksRight()
         case TetrisShape::T:
             TetrisShape_T(this, currentColor).moveShapeRight();
             break;
+        case TetrisShape::L:
+            TetrisShape_L(this, currentColor).moveShapeRight();
+            break;
         default:
             break;
         }
@@ -55,6 +59,9 @@ void TetrisEngine::moveBlocksLeft()
         case TetrisShape::T:
             TetrisShape_T(this, currentColor).moveShapeLeft();
             break;
+        case TetrisShape::L:
+            TetrisShape_L(this, currentColor).moveShapeLeft();
+            break;
         default:
             break;
         }
@@ -76,6 +83,9 @@ void TetrisEngine::moveBlocksDown()
             break;
         case TetrisShape::T:
             TetrisShape_T(this, currentColor).moveShapeDown();
+            break;
+        case TetrisShape::L:
+            TetrisShape_L(this, currentColor).moveShapeDown();
             break;
         default:
             break;
@@ -101,7 +111,7 @@ void TetrisEngine::updateGridData()
             int colors[] = {BLUE, LIGHTBLUE, RED, YELLOW, GREEN, PURPLE, ORANGE};
             int colorIndex = rand() % 7;
             // currentShape = TetrisShape(rand() % 8);
-            currentShape = TetrisShape::T;
+            currentShape = TetrisShape::L;
             currentColor = (Colors)colors[colorIndex];
             placeInitialBlocks();
         }
@@ -119,6 +129,9 @@ void TetrisEngine::updateGridData()
                 break;
             case TetrisShape::T:
                 TetrisShape_T(this, currentColor).updateShapeData();
+                break;
+            case TetrisShape::L:
+                TetrisShape_L(this, currentColor).updateShapeData();
                 break;
             default:
                 break;
@@ -153,6 +166,7 @@ char **TetrisEngine::getGridData()
 void TetrisEngine::setSpawnNewBlock(bool newSpawnNewBlock)
 {
     spawnNewBlock = newSpawnNewBlock;
+    timer.restart();
 }
 
 bool TetrisEngine::getSpawnNewBlock()
@@ -186,10 +200,14 @@ void TetrisEngine::moveBlockToBottom()
         case TetrisShape::T:
             TetrisShape_T(this, currentColor).moveShapeToBottom();
             break;
+        case TetrisShape::L:
+            TetrisShape_L(this, currentColor).moveShapeToBottom();
+            break;
         default:
             break;
         }
         moveTimer.restart();
+        timer.restart();
     }
 }
 
@@ -218,6 +236,9 @@ void TetrisEngine::placeInitialBlocks()
         break;
     case TetrisShape::T:
         TetrisShape_T(this, currentColor).placeInitialShape();
+        break;
+    case TetrisShape::L:
+        TetrisShape_L(this, currentColor).placeInitialShape();
         break;
     default:
         break;
