@@ -9,7 +9,7 @@
 - [x] move blocks
 - [x] detect collisions
 - [x] lock blocks at bottom
-- [ ] render more shapes of blocks [example: J, T, L, I]
+- [x] render more shapes of blocks [example: J, T, L, I]
 - [ ] rotate blocks
 - [ ] clear a row
 - [ ] audio
